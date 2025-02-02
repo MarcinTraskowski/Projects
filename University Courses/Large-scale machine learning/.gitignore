@@ -1,0 +1,23 @@
+# Ignore SSH keys
+.ssh/
+
+# Ignore Google Cloud service account keys
+*.json
+
+# Terraform state files (may contain sensitive data)
+terraform.tfstate
+terraform.tfstate.backup
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Log files
+*.log
+
+# System files (macOS/Windows)
+.DS_Store
+Thumbs.db

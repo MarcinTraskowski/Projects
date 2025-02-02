@@ -1,0 +1,32 @@
+---
+- hosts: mpi_nodes
+  tasks:
+  - name: install openmpi
+    apt:
+      name:
+        - openmpi-bin
+        - libopenmpi-dev
+        - python3
+        - python3-pip
+      state: latest
+      update_cache: true
+    become: yes
+    become_method: sudo
+
+# added to get pip install --upgrade pip
+  - name: Upgrade pip
+    ansible.builtin.pip:
+      name: pip
+      state: latest
+
+  - name: Install numpy and pytorch
+    ansible.builtin.pip:
+      name:
+        - numpy
+        - torch
+  - name: Install pandas, scipy, and mpi4py
+    ansible.builtin.pip:
+      name:
+      - pandas
+      - scipy
+      - mpi4py
